@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fahad Morol | Portfolio</title>
+
+  <!-- ===== Google Font ===== -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===== Basic Setup ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+    body {
+      background-color: #0f0f0f;
+      color: #f5f5f5;
+      scroll-behavior: smooth;
+    }
+
+    /* ===== Navbar ===== */
+    header {
+      background: #000;
+      padding: 15px 60px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 5px rgba(255, 51, 102, 0.1);
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #ff3366;
+    }
+    .logo span {
+      color: #fff;
+    }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      transition: 0.3s;
+      font-weight: 500;
+    }
+    .nav-links a:hover {
+      color: #ff3366;
+    }
+    .cv-btn {
+      padding: 6px 14px;
+      border: 1px solid #ff3366;
+      border-radius: 25px;
+      transition: 0.3s;
+    }
+    .cv-btn:hover {
+      background: #ff3366;
+    }
+
+    /* ===== Hero Section ===== */
+    .hero {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 100px 10%;
+      flex-wrap: wrap;
+    }
+    .hero-content {
+      max-width: 500px;
+    }
+    .hero-content h3 {
+      font-size: 1.1rem;
+      color: #bbb;
+    }
+    .hero-content h1 {
+      font-size: 3rem;
+      margin: 10px 0;
+    }
+    .hero-content span {
+      color: #ff3366;
+    }
+    .hero-content p {
+      color: #ccc;
+      margin-bottom: 25px;
+      line-height: 1.6;
+    }
+    .hero-buttons .btn {
+      display: inline-block;
+      background: #ff3366;
+      color: #fff;
+      padding: 10px 22px;
+      border-radius: 30px;
+      text-decoration: none;
+      margin-right: 10px;
+      transition: 0.3s;
+    }
+    .hero-buttons .btn-alt {
+      background: transparent;
+      border: 1px solid #ff3366;
+    }
+    .hero-buttons .btn:hover {
+      transform: scale(1.05);
+    }
+    .hero-img img {
+      width: 280px;
+      border-radius: 50%;
+      border: 4px solid #ff3366;
+      box-shadow: 0 0 20px rgba(255, 51, 102, 0.4);
+      animation: both;animation-fill-mode: ;
+    }
+
+    /* ===== About Section ===== */
+    .about {
+      text-align: center;
+      padding: 80px 10%;
+      background: #151515;
+    }
+    .about h2 {
+      color: #ff3366;
+      font-size: 2rem;
+      margin-bottom: 25px;
+    }
+    .about p {
+      color: #ccc;
+      max-width: 700px;
+      margin: auto;
+      line-height: 1.7;
+      font-size: 1rem;
+    }
+
+    /* ===== Skills Section ===== */
+    .skills {
+      padding: 80px 10%;
+      text-align: center;
+    }
+    .skills h2 {
+      color: #ff3366;
+      font-size: 2rem;
+      margin-bottom: 40px;
+    }
+    .skill-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 25px;
+      max-width: 900px;
+      margin: auto;
+    }
+    .skill-card {
+      background: #1b1b1b;
+      padding: 25px;
+      border-radius: 15px;
+      text-align: left;
+      box-shadow: 0 0 10px rgba(255, 51, 102, 0.1);
+      transition: 0.3s;
+    }
+    .skill-card:hover {
+      transform: translateY(-6px);
+      background: #ff3366;
+      color: #fff;
+    }
+    .skill-name {
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    .progress-bar {
+      background: #333;
+      border-radius: 10px;
+      overflow: hidden;
+      height: 10px;
+    }
+    .progress {
+      background: linear-gradient(90deg, #ff3366, #ff7b7b);
+      height: 100%;
+      width: 0;
+      animation: loadSkill 1.8s forwards ease-in-out;
+    }
+    @keyframes loadSkill {
+      0% { width: 0; }
+      100% { width: var(--level); }
+    }
+
+    /* ===== Education ===== */
+    .education {
+      text-align: center;
+      padding: 80px 10%;
+      background: #151515;
+    }
+    .education h2 {
+      color: #ff3366;
+      font-size: 2rem;
+      margin-bottom: 30px;
+    }
+    .edu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      max-width: 800px;
+      margin: auto;
+    }
+    .edu-card {
+      background: #1e1e1e;
+      border-left: 4px solid #ff3366;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: left;
+      transition: 0.3s;
+    }
+    .edu-card:hover {
+      transform: translateY(-5px);
+    }
+
+    /* ===== Projects ===== */
+    .projects {
+      padding: 80px 10%;
+      text-align: center;
+    }
+    .projects h2 {
+      color: #ff3366;
+      font-size: 2rem;
+      margin-bottom: 40px;
+    }
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .project-card {
+      background: #1b1b1b;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(255, 51, 102, 0.1);
+      transition: 0.3s;
+    }
+    .project-card:hover {
+      transform: translateY(-6px);
+      background: #ff3366;
+      color: #fff;
+    }
+    .project-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .project-info {
+      padding: 15px;
+      text-align: left;
+    }
+    .project-info h3 {
+      margin-bottom: 8px;
+    }
+    .project-info p {
+      color: #ccc;
+      font-size: 0.9rem;
+    }
+
+    /* ===== Contact ===== */
+    .contact {
+      text-align: center;
+      padding: 80px 10%;
+      background: #151515;
+    }
+    .contact h2 {
+      color: #ff3366;
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+    form {
+      max-width: 500px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    input, textarea {
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      outline: none;
+    }
+    button {
+      background: #ff3366;
+      border: none;
+      padding: 12px;
+      border-radius: 25px;
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      transform: scale(1.05);
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #000;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+      .hero-img img {
+        margin-top: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== Navbar ===== -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">F<span>M</span></div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="./Fahad_Morol_Web_Developer_Resume.pdf" class="cv-btn" download>Download CV</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ===== Hero ===== -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h3>Hello!</h3>
+      <h1>I'M <span>FAHAD MOROL</span></h1>
+      <p>A Beginner Web Developer focused on building visually appealing,responsive, and user-friendly websites. Always curious to learn and create new digital experiences.</p>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn">Hire Me</a>
+        <a href="./Fahad_Morol_Web_Developer_Resume.pdf" class="btn btn-alt">Download CV</a>
+      </div>
+    </div>
+    <div class="hero-img">
+      <img src="./ei_1760870408478-removebg-preview.png" alt="Fahad Morol">
+    </div>
+  </section>
+
+  <!-- ===== About ===== -->
+  <section id="about" class="about">
+    <h2>About Me</h2>
+    <p>I'm Fahad Morol, a passionate and self-motivated beginner Web Developer. I specialize in creating clean, modern designs using HTML, CSS, and JavaScript. I love learning new technologies and continuously improving my skills to become a full-stack developer in the future.</p>
+  </section>
+
+  <!-- ===== Skills ===== -->
+  <section id="skills" class="skills">
+    <h2>My Skills</h2>
+    <div class="skill-grid">
+      <div class="skill-card">
+        <div class="skill-name">HTML5</div>
+        <div class="progress-bar"><div class="progress" style="--level: 90%;"></div></div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-name">CSS3</div>
+        <div class="progress-bar"><div class="progress" style="--level: 85%;"></div></div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-name">JavaScript (Basic)</div>
+        <div class="progress-bar"><div class="progress" style="--level: 70%;"></div></div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-name">Python (Beginner)</div>
+        <div class="progress-bar"><div class="progress" style="--level: 60%;"></div></div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-name">Canva & Design Tools</div>
+        <div class="progress-bar"><div class="progress" style="--level: 80%;"></div></div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-name">Networking (Basics)</div>
+        <div class="progress-bar"><div class="progress" style="--level: 65%;"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Education ===== -->
+  <section id="education" class="education">
+    <h2>Education</h2>
+    <div class="edu-grid">
+      <div class="edu-card">
+        <h3>SSC (Business Studies)</h3>
+        <p>GPA: 4.00 | Year: 2021</p>
+      </div>
+      <div class="edu-card">
+        <h3>Diploma in Computer Science & Engineering</h3>
+        <p>CGPA: 3.20 |  Model Institute of Science and Technology</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Projects ===== -->
+  <section id="projects" class="projects">
+    <h2>My Projects</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <img src="./hq720.jpg" alt="Project 1">
+        <div class="project-info">
+          <h3>Personal Portfolio</h3>
+          <p>A professional responsive portfolio showcasing my skills and projects.</p>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="./hq720 (1).jpg" alt="Project 2">
+        <div class="project-info">
+          <h3>GPA Calculator</h3>
+          <p>JS-based web app that calculates GPA dynamically with user input.</p>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="./79d2dcad84d48134ff8b8d68735912bd.jpg" alt="Project 3">
+        <div class="project-info">
+          <h3>Ticket price Web App</h3>
+          <p>A ticket price web app is a web-based application that calculates and displays ticket prices based on specific criteria.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Contact ===== -->
+  <section id="contact" class="contact">
+    <h2>Contact Me</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea placeholder="Your Message" rows="5" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer>
+    <p>© 2025 Fahad Morol | All Rights Reserved</p>
+  </footer>
+
+</body>
+</html>
